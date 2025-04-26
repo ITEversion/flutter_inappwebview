@@ -75,6 +75,9 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate,
     init(id: Any?, plugin: SwiftFlutterPlugin?, frame: CGRect, configuration: WKWebViewConfiguration,
          contextMenu: [String: Any]?, userScripts: [UserScript] = []) {
         super.init(frame: frame, configuration: configuration)
+
+        self.layer.contentsScale = UIScreen.main.scale
+
         self.id = id
         self.plugin = plugin
         if let id = id, let registrar = plugin?.registrar {
